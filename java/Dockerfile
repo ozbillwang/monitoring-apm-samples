@@ -12,8 +12,6 @@ RUN curl -L -O https://download.newrelic.com/newrelic/java-agent/newrelic-agent/
 
 ENV JAVA_OPTS="$JAVA_OPTS -javaagent:/usr/local/tomcat/newrelic/newrelic.jar"
 
-ADD ./newrelic/newrelic.yml /usr/local/tomcat/newrelic/newrelic.yml
-
 RUN sed -i "s/<%= license_key %>/${NEW_RELIC_LICENSE_KEY}/" /usr/local/tomcat/newrelic/newrelic.yml
 
 # An example of setting a system property config
